@@ -15,9 +15,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 $(call inherit-product, vendor/lineage/config/telephony.mk)
 
-# GAPPS
+# Vanilla and GAPPS
 WITH_GAPPS ?= true
 ifeq ($(WITH_GAPPS), true)
 $(call inherit-product-if-exists, vendor/google/gms/products/gms.mk)
 $(call inherit-product, vendor/everest-prebuilts/config.mk)
+else
+include vendor/everest/config/vanilla.mk
 endif
