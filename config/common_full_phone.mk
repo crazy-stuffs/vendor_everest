@@ -14,3 +14,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode?=true
 
 $(call inherit-product, vendor/lineage/config/telephony.mk)
+
+# GAPPS
+WITH_GAPPS ?= true
+ifeq ($(WITH_GAPPS), true)
+$(call inherit-product-if-exists, vendor/google/gms/products/gms.mk)
+$(call inherit-product, vendor/everest-prebuilts/config.mk)
+endif

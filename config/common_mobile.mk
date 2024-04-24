@@ -13,8 +13,14 @@ PRODUCT_PACKAGES += \
     Glimpse
 
 # Charger
+ifeq ($(WITH_GMS),true)
+PRODUCT_PACKAGES += \
+    product_charger_res_images \
+    product_charger_res_images_vendor
+else
 PRODUCT_PACKAGES += \
     charger_res_images
+endif
 
 ifneq ($(WITH_LINEAGE_CHARGER),false)
 PRODUCT_PACKAGES += \
